@@ -1,0 +1,18 @@
+<%= simple_form_for @book do |f| %>
+  <div class="ui form">
+    <div class="two fields">
+      <div class="field">
+        <%= f.input :title, label: "Title" %>
+      </div>
+      <div class="field">
+        <%= f.input :link, label: "Link" %>
+      </div>
+    </div>
+    <div class="field">
+      <%= f.input :description, label: "Description" %>
+    </div>
+    <%= f.submit "SAVE", :class => "ui button" %>
+  </div>
+  
+<% end %>
+

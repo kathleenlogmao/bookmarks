@@ -1,0 +1,19 @@
+<%= simple_form_for @book do |f| %>
+  <div class="ui form">
+    <div class="field">
+      <%= f.association :category, label: "Category" %>
+    </div>
+    <div class="two fields">
+      <div class="field">
+        <%= f.input :title, label: "Title" %>
+      </div>
+      <div class="field">
+        <%= f.input :link, label: "Link" %>
+        e.i.: https://www.facebook.com
+      </div>
+    </div>
+    <%= f.submit "SAVE", :class => "ui button" %>
+  </div>
+  
+<% end %>
+

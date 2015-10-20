@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="row">
+    <center>
+      <div class="login">
+        <%= image_tag "b.png" %>
+        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+            <%= f.error_notification %>
+          <div class="ui form">
+            <div class="field">
+              <%= f.input :email, required: true, autofocus: true, label: false, placeholder: "Email" %>
+            </div>
+            <div class="field">
+              <%= f.input :username, required: true, autofocus: true, label: false, placeholder: "Username" %>
+            </div>
+            <div class="field">
+              <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @validatable), label: false, placeholder: "Password" %>
+            </div>
+            <div class="field">
+            <%= f.input :password_confirmation, required: true, label: false, placeholder: "Confirm Password" %>
+             
+            </div>
+             <%= f.button :submit, "Sign up", class: "ui small green submit button fluid" %>
+          </div> 
+          <%= render "devise/shared/links" %>
+        <% end %>
+         <h2>#Bookmark</h2>
+         KEEP CALM, I'M JUST HERE. - bookmark <br />
+         ©2015 All Rights Reserved.
+      </div>
+    </center>
+  </div>
+</div>
+
+
+
+

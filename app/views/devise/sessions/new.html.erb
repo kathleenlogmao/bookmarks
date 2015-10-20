@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row">
+    <center>
+      <div class="login">
+        <%= image_tag "b.png" %>
+        <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <div class="ui form">
+            <div class="field">
+              <%= f.input :login, required: false, autofocus: true, label: false, placeholder: "Email or Username.." %>
+            </div>
+            <div class="field">
+              <%= f.input :password, required: false, label: false, placeholder: "Password.." %>
+            </div>
+            <%= f.submit "Login", class: "ui small blue submit button fluid" %>
+          </div> 
+            <%= render "devise/shared/links" %>
+        <% end %>
+         <h2>#Bookmark</h2>
+          KEEP CALM, I'M JUST HERE. - bookmark <br />
+         ©2015 All Rights Reserved.
+      </div>
+    </center>
+  </div>
+</div>
+
+

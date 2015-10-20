@@ -1,0 +1,71 @@
+<div class="container">
+  <div class="col-md-6 add_new">
+    <div class="ui segment">
+      <h2 class="ui label tag" style="margin-bottom: 20px;">Add New Category</h2>
+      <%= render partial: "pages/categories_form", locals: { category: @category } %>
+    </div>
+    <div class="ui segment">
+      <h2 class="ui label tag" style="margin-bottom: 20px; margin-top: 10px;">Add New Bookmarks</h2>
+      <%= render partial: "pages/form", locals: { book: @book } %>
+    </div>
+  </div>
+  <div class="col-md-6 list infiniscroll">
+    <% @categories.each do |c| %>
+    <div class="ui segment">
+      <div class="row">
+        <div class="col-md-7">
+          <div class="ui multiple dropdown">
+            <input type="hidden" name="filters">
+            
+            <i class="filter icon"></i>
+              <span class="text"> <%= c.name %></span>
+            <div class="menu">
+              <div class="ui icon search input">
+                <i class="search icon"></i>
+                <input type="text" placeholder="Search...">
+              </div>
+              <div class="divider"></div>
+              <div class="scrolling menu">
+               <% c.books.each do |b| %>
+                <div class="item">
+                  <div class="ui red empty circular label"></div>
+                    <%= b.title %> -  <%= link_to "#{b.link}", b.link, :target => "_blank" %>
+                    <div class="row" style="margin-top: 10px; margin-left: 20px;">
+                      <%= link_to b.link, :target => "_blank", class: "ui mini blue button" do %>
+                        <i class="arrow right icon"></i> Go to link
+                      <% end %>
+                      <%= link_to "#", class: "ui mini green button" do %>
+                        <i class="edit icon"></i> Edit
+                      <% end %>
+                      <%= link_to book_path(b.id), data: { :confirm => "Are you sure?" }, :method => :delete, class: "ui mini red button" do %>
+                      <i class="trash icon"></i> Delete
+                      <% end %>
+                    </div>
+                </div>
+                <% end %>
+              </div>
+            </div>
+            </div>
+          </div>
+          <div class="col-md-5">
+            <%= link_to edit_category_path(c.id), class: "ui tiny green button" do %>
+              <i class="trash icon"></i> Edit
+            <% end %>
+            <%= link_to category_path(c.id), data: { :confirm => "Are you sure?" }, :method => :delete, class: "ui tiny red button" do %>
+              <i class="trash icon"></i> Delete
+            <% end %>
+          </div>
+      </div> 
+    </div>
+    <% end %>
+  </div>
+</div>
+
+<script>
+  $('.dropdown')
+  .dropdown({
+    // you can use any ui transition
+    transition: 'drop'
+  })
+;
+</script>

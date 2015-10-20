@@ -1,0 +1,10 @@
+<%= simple_form_for @category do |f| %>
+  <div class="ui form">
+    <div class="field">
+      <%= f.input :name, label: "Category Name" %>
+    </div>
+    <%= f.submit "SAVE", :class => "ui button" %>
+  </div>
+  
+<% end %>
+
